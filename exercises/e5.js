@@ -9,9 +9,9 @@ import { bankAccounts } from "../data/data.js";
 export function getAllClientNames(array) {
   // Your code goes here...
 
-  let names = [bankAccounts[0].name];
-  for (let i = 1; i < array.length; i++) {
-    names.push(array[i].name);
+  let names = [];
+  for (let user of array) {
+    names.push(user.name);
   }
   return names;
 }

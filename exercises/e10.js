@@ -7,16 +7,17 @@ import { bankAccounts } from "../data/data.js";
 
 export function getClientsWithLetterInName(array, letter) {
   // Your code goes here...
-  let clients = [];
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].name.includes(letter.toLowerCase()) || array[i].name.includes(letter.toUpperCase())) {
-      clients.push(array[i].name);
+  let usersWithLetter = [];
+  for (let user of array) {
+    for (let char of user.name) {
+      if (char.toLowerCase() === letter.toLowerCase()) {
+        usersWithLetter.push(user.name);
+      }
     }
   }
-  return clients;
-}
+  return usersWithLetter;
+}  
 
-console.log(getClientsWithLetterInName(bankAccounts, 'c'));
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-10"

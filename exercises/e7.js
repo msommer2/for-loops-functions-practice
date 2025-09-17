@@ -10,16 +10,19 @@ import { bankAccounts } from "../data/data.js";
 
 export function getClientWithLeastPositiveBalance(array) {
   // Your code goes here...
-  let minBalance = Infinity;
-  let client = [];
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].balance > 0 && array[i].balance < minBalance) {
-      minBalance = array[i].balance;
-      client = [array[i]];
+  let leastBalance = [];
+  for (let user of array) {
+    if (user.balance <= 0) {
+      continue;
+    } else if (leastBalance.length === 0) {
+      leastBalance[0] = user;
+    } else if (user.balance < leastBalance[0].balance) {
+      leastBalance[0] = user;
     }
   }
-  return client;
+  
+  return leastBalance;
 }
 
 console.log(getClientWithLeastPositiveBalance(bankAccounts));

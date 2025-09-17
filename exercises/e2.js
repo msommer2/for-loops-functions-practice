@@ -9,11 +9,8 @@ export function getNumbersWithSquareRoots(max) {
 
   const result = [];
 
-  for (let i = 0; i <= max; i++) {
-    let sqrt = Math.sqrt(i);
-    if (sqrt % 1 === 0) {
-      result.push(i);
-    }
+  for (let i = 0; i * i<= max; i++) {
+    result.push(i * i);
   }
 
   return result;

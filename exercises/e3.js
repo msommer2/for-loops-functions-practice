@@ -10,7 +10,10 @@
 
 export function getAverage(array) {
   // Your code goes here...
-  const sum = array.reduce((acc, cur) => acc + cur, 0);
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
   return sum / array.length;
 }
 
@@ -27,10 +30,13 @@ console.log(getAverage([22, 45, 4, 65]));
 
 export function getStringSum(str) {
   // Your code goes here...
-  const sum = str.split('').reduce((acc, cur) => {
-    const num = parseInt(cur);
-    return acc + (isNaN(num) ? 0 : num);
-  }, 0);
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charAt(i);
+    if (!isNaN(char)) {
+      sum += parseInt(char);
+    }
+  }
   return sum;
 }
 
