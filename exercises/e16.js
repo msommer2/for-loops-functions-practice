@@ -1,15 +1,34 @@
 
 // EXERCISE 16
-// Please, read the exercise-info/flat.md to get the initial data of what is the expected result of this exercise.
+// Please, read the exercise-info/flat.md to get the initial data of 
+// what is the expected result of this exercise.
 // Array example: flatArraysData in /data/data.js
-// flatArrays([['d', 'r'], 'z', 'b', ['f', 'y']]) => ['d', 'r', 'z', 'b', 'f', 'y']
+// flatArrays([['d', 'r'], 'z', 'b', ['f', 'y']]) => 
+// ['d', 'r', 'z', 'b', 'f', 'y']
 // NOTE: You can NOT use the array.flat() method in your code
 
 export function flatArrays(array) {
   // Your code goes here...
-
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      for (let j = 0; j < array[i].length; j++) {
+        result.push(array[i][j]);
+      }
+    } else {
+      result.push(array[i]);
+    }
+  }
+  return result;
 }
 
+console.log(flatArrays([['d', 'r'], 'z', 'b', ['f', 'y']]));
+
+
+
+
+// It seems that alternatively the entire function could just be
+// return array.flat()
 
 
 // === TEST YOURSELF ===
